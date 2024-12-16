@@ -1,5 +1,6 @@
 package banco;
 import java.time.LocalDate;
+import java.util.ArrayList;
 public final class Account {
   private final int id;
   private String password;
@@ -7,6 +8,7 @@ public final class Account {
   private typeAccount type;
   private final Birth creationDate;
   private final Customer customer;
+  private final ArrayList<Movement> bankStatement;
   
   public Account(int id, String password, typeAccount type, Birth creationDate, Customer customer) {
     this.id = id;
@@ -14,6 +16,7 @@ public final class Account {
     this.type = type;
     this.creationDate = creationDate;
     this.customer = customer;
+    this.bankStatement = new ArrayList<Movement>();
   }
   
   public int getId() {
@@ -31,14 +34,14 @@ public final class Account {
     return balance;
   }
   
-  public String getType() {
+  public typeAccount getType() {
     return type;
   }
-  public void setType(String type) {
+  public void setType(typeAccount type) {
     this.type = type;
   }
   
-  public LocalDate getCreationDate() {
+  public Birth getCreationDate() {
     return creationDate;
   }
   

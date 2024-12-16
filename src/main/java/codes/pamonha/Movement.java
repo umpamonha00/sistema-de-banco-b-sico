@@ -1,37 +1,24 @@
 package banco;
-public final class Movement {
+public abstract class Movement {
+  private final int id;
   private final ActionMovement action;
   private final double amount;
-  private final Account from;
-  private final Account to;
   
-  public Movement(ActionMovement action, double value) {
-    this.action = action;
-    this.value = value;
-    this.from = null;
-    this.to = null;
-  }
-  
-  public Movement(ActionMovement action, double amount, Account from, Account to) {
+  public Movement(int id, ActionMovement action, double amount) {
+    this.id = id;
     this.action = action;
     this.amount = amount;
-    this.from = from;
-    this.to = to;
+  }
+
+  public final int getId() {
+    return id;
   }
   
-  public String getAction() {
+  public final ActionMovement getAction() {
     return action;
   }
   
-  public double getAmount() {
+  public final double getAmount() {
     return amount;
-  }
-  
-  public Account getFrom() {
-    return from;
-  }
-  
-  public Account getTo() {
-    return to;
   }
 }
